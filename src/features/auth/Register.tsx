@@ -17,12 +17,10 @@ const Register = function() {
         name: string
         email: string
         password: string
-        password_confirm: string
     }>({
         name: '',
         email: '',
         password: '',
-        password_confirm: ''
     })
 
     const [signUp,registerResult] = useSignUpMutation()
@@ -62,7 +60,6 @@ const Register = function() {
             <Input type="text" placeholder='Name' name="name" onChange={onChangeInput} />
             <Input type="email" placeholder="Email" name="email" onChange={onChangeInput} />
             <Input type="password" placeholder="Password" name="password" onChange={onChangeInput} />
-            <Input type="password" placeholder="Confirm Password" name="password_confirm" onChange={onChangeInput} />
             
             <button disabled={registerResult.isLoading}
             className='w-full rounded-md border-none outline-none py-3 bg-indigo-500 text-white hover:bg-indigo-400'
