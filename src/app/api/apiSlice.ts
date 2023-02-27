@@ -20,8 +20,10 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithAuth = async function(args: string | FetchArgs, api: BaseQueryApi, extraOptions: {}) {
     let result = await baseQuery(args, api, extraOptions)
 
+    const statusCode = result.error?.status
+
     // Unauthorized request
-    if(result.error?.status === 401) {
+    if(statusCode === 401) {
         const refreshToken = await baseQuery('/auth/refresh-token', api, extraOptions)
 
         if(refreshToken?.data) {

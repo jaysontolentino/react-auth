@@ -9,7 +9,7 @@ const Register = function() {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const from = location.state?.pathname || '/quiz'
+    const from = location.state?.pathname || '/login'
 
     const [formError, setFormError] = useState('')
     const [isError, setIsError] = useState(false)

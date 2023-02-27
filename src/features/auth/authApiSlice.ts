@@ -56,9 +56,11 @@ export const authApiSlice = apiSlice.injectEndpoints({
                     }
                 },
                 async onQueryStarted(arg, api) {
+                    
                     const result = await api.queryFulfilled
                     const token = result.data.token
                     api.dispatch(setAuthToken(token))
+
                 },
             }),
             getUser: build.mutation({
